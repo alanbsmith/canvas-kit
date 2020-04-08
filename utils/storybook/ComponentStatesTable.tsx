@@ -40,7 +40,7 @@ export interface ComponentStatesTableProps {
   children(props: Props): React.ReactNode;
 }
 
-const Table = styled('table')({
+export const Table = styled('table')({
   width: '100%',
   thead: {
     textAlign: 'left',
