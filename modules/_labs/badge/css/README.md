@@ -29,7 +29,7 @@ Add your `node_modules` directory to your SASS `includePaths`. You will then be 
 
 <!-- inverse badge variant -->
 <span
-  class="wdc-badge--inverse"
+  class="wdc-badge-inverse"
   role="status"
   aria-live="polite"
   aria-label="999+ unread notifications"

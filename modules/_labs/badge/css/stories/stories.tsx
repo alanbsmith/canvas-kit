@@ -39,13 +39,13 @@ export const Default = () => (
     </div>
     <div className="story" style={{display: 'flex'}}>
       <span
-        className="wdc-badge--inverse"
+        className="wdc-badge-inverse"
         role="status"
         aria-live="polite"
         aria-label="new unread notifications"
       ></span>
       <span
-        className="wdc-badge--inverse"
+        className="wdc-badge-inverse"
         role="status"
         aria-live="polite"
         aria-label="1 new notification"
@@ -53,7 +53,7 @@ export const Default = () => (
         1
       </span>
       <span
-        className="wdc-badge--inverse"
+        className="wdc-badge-inverse"
         role="status"
         aria-live="polite"
         aria-label="100 new notifications"
@@ -61,7 +61,7 @@ export const Default = () => (
         100
       </span>
       <span
-        className="wdc-badge--inverse"
+        className="wdc-badge-inverse"
         role="status"
         aria-live="polite"
         aria-label="999+ new notifications"

@@ -39,7 +39,7 @@
 }
 
 // inverse badge styles
-.wdc-badge--inverse {
+.wdc-badge-inverse {
   @include wdc-badge();
   background: $wdc-color-french-vanilla-100;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
