@@ -16,11 +16,21 @@ const variants = {
     background: colors.cinnamon500,
     color: colors.frenchVanilla100,
     textShadow: '0 0 1px rgba(0,0,0, 0.35)',
+    '&:empty': {
+      background: colors.frenchVanilla100,
+      border: `solid 6px ${colors.cinnamon500}`,
+      padding: 0,
+    },
   },
   inverse: {
     background: colors.frenchVanilla100,
     boxShadow: '0 1px 2px rgba(0,0,0, 0.25)',
     color: colors.blueberry400,
+    '&:empty': {
+      background: colors.blueberry400,
+      border: `solid 6px ${colors.frenchVanilla100}`,
+      padding: 0,
+    },
   },
 };
 
@@ -55,7 +65,11 @@ const Container = styled('span')<BadgeProps>(
 );
 
 const Badge = (props: BadgeProps) => {
-  const {count = 0, ...elemProps} = props;
+  const {count, ...elemProps} = props;
+
+  if (count === undefined) {
+    return <Container {...elemProps} role="status" aria-live="polite" />;
+  }
 
   const formattedCount = count < 1000 ? count : '999+';
   return (

@@ -10,7 +10,13 @@ export default {
 
 export const Default = () => (
   <>
-    <div className="story">
+    <div className="story" style={{display: 'flex'}}>
+      <span
+        className="wdc-badge"
+        role="status"
+        aria-live="polite"
+        aria-label="new unread notifications"
+      ></span>
       <span className="wdc-badge" role="status" aria-live="polite" aria-label="1 new notification">
         1
       </span>
@@ -31,7 +37,13 @@ export const Default = () => (
         999+
       </span>
     </div>
-    <div className="story">
+    <div className="story" style={{display: 'flex'}}>
+      <span
+        className="wdc-badge--inverse"
+        role="status"
+        aria-live="polite"
+        aria-label="new unread notifications"
+      ></span>
       <span
         className="wdc-badge--inverse"
         role="status"

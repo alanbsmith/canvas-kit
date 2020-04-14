@@ -11,8 +11,8 @@ describe('Badge', () => {
     return render(<Badge {...badgeProps} />);
   };
 
-  it('should default to 0 if no count is provided', () => {
-    const expected = '0';
+  it('should default to empty if no count is provided', () => {
+    const expected = '';
     const {container} = renderBadge();
 
     expect(container.textContent).toEqual(expected);

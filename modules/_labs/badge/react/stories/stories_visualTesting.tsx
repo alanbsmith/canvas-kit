@@ -23,6 +23,7 @@ export const VisualTesting = () => {
       <thead>
         <tr>
           <th></th>
+          <th>Empty</th>
           <th>Single Digit</th>
           <th>Double Digit</th>
           <th>Triple Digit</th>
@@ -33,31 +34,37 @@ export const VisualTesting = () => {
         <tr>
           <td>Default</td>
           <td>
-            <Badge aria-label={`${1} new notifications`} count={1} />
+            <Badge aria-label={`new unread notifications`} />
           </td>
           <td>
-            <Badge aria-label={`${23} new notifications`} count={23} />
+            <Badge aria-label={`${1} unread notifications`} count={1} />
           </td>
           <td>
-            <Badge aria-label={`${999} new notifications`} count={999} />
+            <Badge aria-label={`${23} unread notifications`} count={23} />
           </td>
           <td>
-            <Badge aria-label={`${1000} new notifications`} count={1000} />
+            <Badge aria-label={`${999} unread notifications`} count={999} />
+          </td>
+          <td>
+            <Badge aria-label={`${1000} unread notifications`} count={1000} />
           </td>
         </tr>
         <tr>
           <td>Inverse</td>
           <td>
-            <Badge variant="inverse" aria-label={`${1} new notifications`} count={1} />
+            <Badge aria-label={`new unread notifications`} variant="inverse" />
           </td>
           <td>
-            <Badge variant="inverse" aria-label={`${23} new notifications`} count={23} />
+            <Badge variant="inverse" aria-label={`${1} unread notifications`} count={1} />
           </td>
           <td>
-            <Badge variant="inverse" aria-label={`${999} new notifications`} count={999} />
+            <Badge variant="inverse" aria-label={`${23} unread notifications`} count={23} />
           </td>
           <td>
-            <Badge variant="inverse" aria-label={`${1000} new notifications`} count={1000} />
+            <Badge variant="inverse" aria-label={`${999} unread notifications`} count={999} />
+          </td>
+          <td>
+            <Badge variant="inverse" aria-label={`${1000} unread notifications`} count={1000} />
           </td>
         </tr>
       </tbody>

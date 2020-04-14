@@ -30,3 +30,17 @@ export const Inverse = () => (
     />
   </div>
 );
+
+export const Empty = () => (
+  <div className="story">
+    <Badge
+      aria-label="new unread notifications"
+      variant={select('Variant', ['default', 'inverse'], 'default')}
+    />
+    <Badge
+      aria-label="new unread notifications"
+      count={number('Count', 1)}
+      variant={select('Variant', ['default', 'inverse'], 'default')}
+    />
+  </div>
+);

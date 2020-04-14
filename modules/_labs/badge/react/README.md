@@ -23,6 +23,9 @@ import Badge from '@workday/canvas-kit-labs-react-badge';
 
 // inverse Badge variant
 <Badge variant="inverse" count={3} aria-label="3 unread notifications" />
+
+// empty Badge
+<Badge variant="inverse" aria-label="new unread notifications" />
 ```
 
 ## Static Properties
@@ -45,4 +48,4 @@ import Badge from '@workday/canvas-kit-labs-react-badge';
 | Name    | Type                 | Default Value |
 | ------- | -------------------- | ------------- |
 | variant | 'default', 'inverse' | 'default'     |
-| count   | number               | 0             |
+| count   | number               | undefined     |

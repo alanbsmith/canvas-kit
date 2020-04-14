@@ -37,6 +37,9 @@ Add your `node_modules` directory to your SASS `includePaths`. You will then be 
   2
 </span>
 
+<!-- empty badge -->
+<span class="wdc-badge" role="status" aria-live="polite" aria-label="1 unread notification"></span>
+
 <!-- badges with more than 999 notifications should display '999+' -->
 <span class="wdc-badge" role="status" aria-live="polite" aria-label="999+ unread notifications">
   999+
