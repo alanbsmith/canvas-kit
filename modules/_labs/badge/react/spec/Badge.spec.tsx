@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from '@testing-library/react';
-import {Badge, BadgeProps} from '@workday/canvas-kit-labs-react-badge';
+import {Badge, BadgeProps} from '../index';
 
 describe('Badge', () => {
   const renderBadge = (props = {} as Partial<BadgeProps>) => {
