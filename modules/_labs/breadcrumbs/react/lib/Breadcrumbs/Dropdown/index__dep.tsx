@@ -4,7 +4,16 @@ import {colors, spacing, depth, type} from '@workday/canvas-kit-react-core';
 import {SystemIcon} from '@workday/canvas-kit-react-icon';
 import {CanvasSystemIcon} from '@workday/design-assets-types';
 import {plusIcon} from '@workday/canvas-system-icons-web';
+import {
+  Popup,
+  Popper,
+  usePopup,
+  useCloseOnOutsideClick,
+  useCloseOnEscape,
+} from '@workday/canvas-kit-react-popup';
+
 import {createPortal} from 'react-dom';
+import {BreadcrumbsContext} from '../Nav';
 
 type DropdownPopoverProps = {
   /**
@@ -82,6 +91,8 @@ export const Option = styled.div<FocusProps>(props => ({
   backgroundColor: props.isFocused ? colors.blueberry400 : colors.frenchVanilla100,
   color: props.isFocused ? colors.frenchVanilla100 : colors.blackPepper300,
   outline: `none`,
+  width: 280,
+  wordBreak: 'break-word',
   '&:hover': {
     backgroundColor: props.isFocused ? colors.blueberry400 : colors.soap300,
   },
@@ -131,7 +142,8 @@ const Options = styled.div<OptionsProps>(props => ({
 }));
 
 export const DropdownPopover = (props: DropdownPopoverProps) => {
-  const optionList = Array.prototype.concat.apply([], props.options);
+  const {dropdownItems: optionList} = React.useContext(BreadcrumbsContext);
+  // const optionList = Array.prototype.concat.apply([], props.options);
 
   const handleUpdateActiveOption = (optionIndex: number, moveUp: boolean) => {
     const modifier = moveUp ? -1 : 1;
@@ -147,31 +159,31 @@ export const DropdownPopover = (props: DropdownPopoverProps) => {
   ) => {
     e.stopPropagation(); // use to keep event from bubbling up to the drag and drop key handler
     switch (e.key) {
-      case `Enter`:
+      case 'Enter':
         props.setOpenState(false);
         props.setActiveOption(dummyOption);
         onOptionChange(option);
         break;
 
-      case `ArrowUp`:
-      case `ArrowLeft`:
-      case `Up`:
+      case 'ArrowUp':
+      case 'ArrowLeft':
+      case 'Up':
         handleUpdateActiveOption(optionList.indexOf(option), true);
         break;
 
-      case `ArrowDown`:
-      case `Down`:
-      case `ArrowRight`:
+      case 'ArrowDown':
+      case 'Down':
+      case 'ArrowRight':
         handleUpdateActiveOption(optionList.indexOf(option), false);
         break;
 
-      case `Escape`:
-      case `Esc`:
+      case 'Escape':
+      case 'Esc':
         props.setOpenState(false);
         props.setActiveOption(dummyOption);
         break;
 
-      case `Tab`:
+      case 'Tab':
         props.setOpenState(false);
         props.setActiveOption(dummyOption);
         e.preventDefault();
@@ -217,13 +229,13 @@ export const DropdownPopover = (props: DropdownPopoverProps) => {
                     isFocused={isFocused}
                     data-testid={`dropdown-option-${option.text}`}
                   >
-                    {option.icon && option.color && (
+                    {/* {option.icon && option.color && (
                       <SystemIcon
                         icon={option.icon}
                         color={isFocused ? colors.soap100 : option.color}
                         colorHover={isFocused ? colors.soap100 : option.color}
                       />
-                    )}
+                    )} */}
                     <OptionText>{option.text}</OptionText>
                   </Option>
                 );
