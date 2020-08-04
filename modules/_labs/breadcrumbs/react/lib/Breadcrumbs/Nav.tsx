@@ -1,32 +1,20 @@
 import React from 'react';
 
-import {Breadcrumb} from './types';
-interface BreadcrumbsContext {
-  dropdownItems: Breadcrumb[];
-  maxWidth: number;
-  setDropdownItems: React.Dispatch<React.SetStateAction<Breadcrumb[]>>;
-}
-
+import {BreadcrumbsProvider} from './Provider';
+import {DropdownProvider} from './Dropdown/Provider';
 export interface BreadcrumbsNavProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
-  maxWidth: number;
+  maxWidth?: number;
 }
 
-export const BreadcrumbsContext = React.createContext({} as BreadcrumbsContext);
-
-export const BreadcrumbsNav = ({maxWidth, children, ...props}: BreadcrumbsNavProps) => {
-  const [dropdownItems, setDropdownItems] = React.useState<Breadcrumb[]>([]);
-  const context = {
-    dropdownItems,
-    maxWidth,
-    setDropdownItems,
-  };
-
+export const BreadcrumbsNav = ({maxWidth = 0, children, ...props}: BreadcrumbsNavProps) => {
   return (
-    <BreadcrumbsContext.Provider value={context}>
-      <nav role="navigation" aria-label="Breadcrumb" {...props}>
-        {children}
-      </nav>
-    </BreadcrumbsContext.Provider>
+    <BreadcrumbsProvider maxWidth={maxWidth}>
+      <DropdownProvider>
+        <nav role="navigation" aria-label="Breadcrumb" {...props}>
+          {children}
+        </nav>
+      </DropdownProvider>
+    </BreadcrumbsProvider>
   );
 };

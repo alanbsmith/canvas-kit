@@ -4,120 +4,146 @@ import withReadme from 'storybook-readme/with-readme';
 import {number, withKnobs} from '@storybook/addon-knobs/react';
 
 import README from '../README.md';
-import {Breadcrumbs} from '../lib/Breadcrumbs/Breadcrumbs';
-import {CurrentCrumb} from '../lib/Breadcrumbs/CurrentCrumb';
-import {LinkedCrumb} from '../lib/Breadcrumbs/LinkedCrumb';
-import {BreadcrumbsNav} from '../lib/Breadcrumbs/Nav';
-import {BreadcrumbsList} from '../lib/Breadcrumbs/List';
-import {BreadcrumbsListItem} from '../lib/Breadcrumbs/ListItem';
 
-const exampleBreadcrumbs = [
-  {
-    text: 'Wicked: The Life and Times of the Wicked Witch of the West',
-    href: '/',
-    onAction: () => {
-      window.alert(`Root`);
-    },
-  },
-  {
-    text: 'Folder1',
-    href: '/Folder1',
-    onAction: () => {
-      window.alert(`Folder1`);
-    },
-  },
-  {
-    text: 'Folder2',
-    href: '/Folder2',
-    onAction: () => {
-      window.alert(`Folder2`);
-    },
-  },
-  {
-    text: 'Folder3',
-    href: '/Folder3',
-    onAction: () => {
-      window.alert(`Folder3`);
-    },
-  },
-  {
-    text: 'Folder4',
-    href: '/Folder4',
-    onAction: () => {
-      window.alert(`Folder4`);
-    },
-  },
-  {
-    text: 'The rise and fall of a fellow with a really really long last name',
-    href: '/Folder5',
-    onAction: () => {
-      window.alert(`Folder5`);
-    },
-  },
-];
+import {Breadcrumbs} from '../lib/Breadcrumbs';
 
 export default {
   title: 'Labs|Breadcrumbs/React',
   decorators: [withReadme(README), withKnobs],
 };
 
-// storiesOf('Labs/Breadcrumbs', module)
-//   .addParameters({component: Breadcrumbs})
-//   .addDecorator(withReadme(README))
-//   .add('Default', () => (
-//     <div className="story">
-// <Breadcrumbs breadcrumbs={exampleBreadcrumbs} containerWidth={600} />
-//     </div>
-//   ))
-//   .add('Truncated', () => (
-//     <div className="story">
-//       <Breadcrumbs breadcrumbs={exampleBreadcrumbs} containerWidth={400} />
-//     </div>
-//   ))
-//   .add('Extra Truncated', () => (
-//     <div className="story">
-//       <Breadcrumbs breadcrumbs={exampleBreadcrumbs} containerWidth={100} />
-//     </div>
-//   ));
+// const breadcrumbItems = [
+//   {
+//     name: 'Root',
+//     ['aria-label']: 'menuitem',
+//     icon: 'folder',
+//     ...
+//     onAction: () => {
+//       window.alert(`Root`);
+//     },
+//   },
+//   {
+//     name: 'Folder1',
+//     ['aria-label']: 'menuitem',
+//     icon: 'folder',
+//     ...
+//     onAction: () => {
+//       window.alert(`Folder1`);
+//     },
+//   },
+//   {
+//     name: 'Folder2',
+//     ['aria-label']: 'menuitem',
+//     icon: 'folder',
+//     ...
+//     onAction: () => {
+//       window.alert(`Folder2`);
+//     },
+//   },
+//   {
+//     name: 'Folder3',
+//     ['aria-label']: 'menuitem',
+//     icon: 'folder',
+//     ...
+//     onAction: () => {
+//       window.alert(`Folder3`);
+//     },
+//   },
+//   {
+//     name: 'Folder4',
+//     ['aria-label']: 'menuitem',
+//     icon: 'folder',
+//     ...
+//     onAction: () => {
+//       window.alert(`Folder4`);
+//     },
+//   },
+//   {
+//     name: 'Folder5',
+//     ['aria-label']: 'menuitem',
+//     icon: 'folder',
+//     ...
+//     onAction: () => {
+//       window.alert(`Folder5`);
+//     },
+//   },
+// ];
 
-export const Configurable = () => {
+// <Breadcrumbs items={breadcrumbItems} />;
+
+export const Default = () => {
   return (
-    <Breadcrumbs breadcrumbs={exampleBreadcrumbs} maxWidth={100} expanderAriaLabel="more links" />
+    <Breadcrumbs.Nav>
+      <Breadcrumbs.List>
+        <Breadcrumbs.ListItem>
+          <Breadcrumbs.LinkedCrumb
+            onAction={href => alert(href)}
+            onClick={e => console.log('currentTarget', e.currentTarget)}
+            href="/income_statement_actuals_vs_budget_ytd_with_variance"
+            maxWidth={150}
+          >
+            income_statement_actuals_vs_budget_ytd_with_variance
+          </Breadcrumbs.LinkedCrumb>
+        </Breadcrumbs.ListItem>
+        <Breadcrumbs.ListItem>
+          <Breadcrumbs.LinkedCrumb onAction={href => alert(href)} href="/ledger-account">
+            Ledger Account is “4200: Property”
+          </Breadcrumbs.LinkedCrumb>
+        </Breadcrumbs.ListItem>
+        <Breadcrumbs.ListItem>
+          <Breadcrumbs.LinkedCrumb href="/documents">Documents</Breadcrumbs.LinkedCrumb>
+        </Breadcrumbs.ListItem>
+        <Breadcrumbs.ListItem>
+          <Breadcrumbs.LinkedCrumb
+            maxWidth={200}
+            href="/2018_08_28_Annual_Recurring_Revenue"
+            onAction={href => alert(href)}
+          >
+            2018_08_28_Annual_Recurring_Revenue
+          </Breadcrumbs.LinkedCrumb>
+        </Breadcrumbs.ListItem>
+        <Breadcrumbs.CurrentCrumb>
+          Policy_Type_is_Homeowners_Year_is_FY2020_Version_is_Actuals
+        </Breadcrumbs.CurrentCrumb>
+      </Breadcrumbs.List>
+    </Breadcrumbs.Nav>
   );
 };
 
-export const Composable = () => {
+export const Collapsible = () => {
   return (
-    <BreadcrumbsNav maxWidth={800}>
-      <BreadcrumbsList expanderAriaLabel="more links">
-        <BreadcrumbsListItem>
-          <LinkedCrumb
+    <Breadcrumbs.Nav maxWidth={number('maxWidth', 800)}>
+      <Breadcrumbs.CollapsibleList aria-label="breadcrumbs" expanderAriaLabel="more links">
+        <Breadcrumbs.ListItem>
+          <Breadcrumbs.LinkedCrumb
             onAction={href => alert(href)}
             onClick={e => console.log('currentTarget', e.currentTarget)}
-            href="/artists"
+            href="/income_statement_actuals_vs_budget_ytd_with_variance"
           >
             income_statement_actuals_vs_budget_ytd_with_variance
-          </LinkedCrumb>
-        </BreadcrumbsListItem>
-        <BreadcrumbsListItem>
-          <LinkedCrumb onAction={href => alert(href)} href="/david-bowie">
+          </Breadcrumbs.LinkedCrumb>
+        </Breadcrumbs.ListItem>
+        <Breadcrumbs.ListItem>
+          <Breadcrumbs.LinkedCrumb onAction={href => alert(href)} href="/ledger-account">
             Ledger Account is “4200: Property”
-          </LinkedCrumb>
-        </BreadcrumbsListItem>
-        <BreadcrumbsListItem>
-          <LinkedCrumb href="/albums">Albums</LinkedCrumb>
-        </BreadcrumbsListItem>
-        <BreadcrumbsListItem>
-          <LinkedCrumb
+          </Breadcrumbs.LinkedCrumb>
+        </Breadcrumbs.ListItem>
+        <Breadcrumbs.ListItem>
+          <Breadcrumbs.LinkedCrumb href="/documents">Documents</Breadcrumbs.LinkedCrumb>
+        </Breadcrumbs.ListItem>
+        <Breadcrumbs.ListItem>
+          <Breadcrumbs.LinkedCrumb
             maxWidth={200}
-            href="/the-rise-and-fall-of-ziggy-stardust-and-the-spiders-from-mars"
+            href="/2018_08_28_Annual_Recurring_Revenue"
             onAction={href => alert(href)}
           >
-            Policy_Type_is_Homeowners_Year_is_FY2020_Version_is_Actuals
-          </LinkedCrumb>
-        </BreadcrumbsListItem>
-        <CurrentCrumb>The weather better be better when we get together forever</CurrentCrumb>
-      </BreadcrumbsList>
-    </BreadcrumbsNav>
+            2018_08_28_Summary_of_Annual_Recurring_Revenue
+          </Breadcrumbs.LinkedCrumb>
+        </Breadcrumbs.ListItem>
+        <Breadcrumbs.CurrentCrumb>
+          Policy_Type_is_Homeowners_Year_is_FY2020_Version_is_Actuals
+        </Breadcrumbs.CurrentCrumb>
+      </Breadcrumbs.CollapsibleList>
+    </Breadcrumbs.Nav>
   );
 };

@@ -3,5 +3,5 @@ export interface Breadcrumb {
   link: string;
   text: string;
   width: number;
-  onAction?: () => void;
+  onAction?: (item: Breadcrumb) => void;
 }

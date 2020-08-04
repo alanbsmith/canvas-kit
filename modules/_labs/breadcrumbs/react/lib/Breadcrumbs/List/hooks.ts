@@ -1,36 +1,19 @@
-import React, {Children, useEffect, useLayoutEffect} from 'react';
+import React, {Children, useLayoutEffect} from 'react';
 import {CSSObject} from '@emotion/core';
 
-import {dummyOption, OptionProps} from './DropdownPopup';
 import {BreadcrumbsListItem} from './ListItem';
 import {LinkedCrumb} from './LinkedCrumb';
-import {Breadcrumb} from './types';
+import {Breadcrumb} from '../types';
 
-export const useActiveDropdownOption = <E extends HTMLElement>(
-  activeDropdownOptionEl: React.RefObject<E>,
-  option: OptionProps = dummyOption
-) => {
-  const [activeDropdownOption, setActiveDropdownOption] = React.useState(option);
-
-  useEffect(() => {
-    if (activeDropdownOptionEl.current) {
-      return activeDropdownOptionEl.current.focus();
-    }
-  }, [activeDropdownOption, activeDropdownOptionEl]);
-
-  return [activeDropdownOption, setActiveDropdownOption];
-};
-
-export const useExpander = <E extends HTMLElement>(listEl: React.RefObject<E>, maxWidth = 0) => {
-  const [isExpanderOpen, setIsExpanderOpen] = React.useState<boolean>(false);
-  const [shouldShowExpander, setShouldShowExpander] = React.useState<boolean>(false);
+export const useDropdown = <E extends HTMLElement>(listEl: React.RefObject<E>, maxWidth = 0) => {
+  const [shouldShowDropdown, setShouldShowDropdown] = React.useState<boolean>(false);
 
   useLayoutEffect(() => {
     const listWidth = listEl.current?.clientWidth || 0;
-    setShouldShowExpander(listWidth > maxWidth);
+    setShouldShowDropdown(listWidth > maxWidth);
   }, [listEl, maxWidth]);
 
-  return {shouldShowExpander, isExpanderOpen, setIsExpanderOpen};
+  return {shouldShowDropdown};
 };
 
 const getBreadcrumbLink = (breadcrumb: React.ReactElement) => {
