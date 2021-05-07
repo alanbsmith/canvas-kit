@@ -18,7 +18,8 @@ about the update.
   - [Tabs](#tabs)
   - [Button](#button)
   - [Card](#card)
-  - [Labs Space Style Function](#-labs-space-style-function)
+  - [Labs Space Style Function](#labs-space-style-function)
+  - [Border Radius Zero Token](#border-radius-zero-token)
 
 ## General Changes
 
@@ -308,7 +309,6 @@ import {Card} from './Card' // where `Card` is a re-exported Canvas `Card`
 
 This codemod should handle most of what we've seen in code that uses Canvas Kit cards already.
 
-
 ## Labs Space Style Function
 
 The `space` style function in the `/labs-react/token` (formerly `labs/core`) has been removed.
@@ -321,11 +321,29 @@ import {space} from '@workday/canvas-kit-labs-react-core';
 // A styled div with space props
 const Box = styled('div')(space);
 
-<Box p={spaceNumbers.xl}>Ye Olde SpaceBox</Box>
+<Box p={spaceNumbers.xl}>Ye Olde SpaceBox</Box>;
 
 // after
-import {Box} from '@workday/canvas-kit/labs-react/common'
+import {Box} from '@workday/canvas-kit/labs-react/common';
 
 // You can also use `padding={spaceNumbers.xl}` or `padding={space.xl}`
-<Box padding="xl">New Box</Box>
+<Box padding="xl">New Box</Box>;
+```
+
+## Border Radius Zero Token
+
+The border radius zero token value was updated from `0` to `"0px"` for consistency; all other border
+radius tokens use string pixel values. We highly doubt this change will cause any issues, but
+because the value's type is different, this is technically a breaking change.
+
+```tsx
+// before
+import {borderRadius} from '@workday/canvas-kit-react/tokens';
+
+console.log(borderRadius.zero); // returns `0`
+
+// after
+import {borderRadius} from '@workday/canvas-kit-react/tokens';
+
+console.log(borderRadius.zero); // returns "0px"
 ```
