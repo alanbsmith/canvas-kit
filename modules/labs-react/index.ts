@@ -11,3 +11,4 @@ export * from './select';
 export * from './side-panel';
 export * from './tabs';
 export * from './tokens';
+export * from './typography';
