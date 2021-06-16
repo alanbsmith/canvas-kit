@@ -1,6 +1,10 @@
 {
   "name": "@workday/canvas-kit-css-fonts",
+<<<<<<< HEAD:modules/css-fonts/package.json
   "version": "5.0.1",
+=======
+  "version": "4.8.0",
+>>>>>>> 950ccc9ab3c3be5507fd560f9e5e725ff2513fc0:modules/fonts/css/package.json
   "description": "Fonts for canvas-kit-css",
   "author": "Workday, Inc. (https://www.workday.com)",
   "license": "Apache-2.0",

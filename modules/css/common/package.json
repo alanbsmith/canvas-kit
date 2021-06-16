@@ -1,6 +1,10 @@
 {
   "name": "@workday/canvas-kit-css-common",
+<<<<<<< HEAD:modules/css/common/package.json
   "version": "5.0.1",
+=======
+  "version": "4.8.0",
+>>>>>>> 950ccc9ab3c3be5507fd560f9e5e725ff2513fc0:modules/common/css/package.json
   "description": "The common css for canvas-kit-css",
   "author": "Workday, Inc. (https://www.workday.com)",
   "license": "Apache-2.0",
@@ -28,6 +32,10 @@
     "workday"
   ],
   "dependencies": {
+<<<<<<< HEAD:modules/css/common/package.json
     "@workday/canvas-kit-css-core": "^5.0.1"
+=======
+    "@workday/canvas-kit-css-core": "^4.8.0"
+>>>>>>> 950ccc9ab3c3be5507fd560f9e5e725ff2513fc0:modules/common/css/package.json
   }
 }

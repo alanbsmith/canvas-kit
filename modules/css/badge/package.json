@@ -1,6 +1,10 @@
 {
   "name": "@workday/canvas-kit-css-badge",
+<<<<<<< HEAD:modules/css/badge/package.json
   "version": "5.0.1",
+=======
+  "version": "4.8.0",
+>>>>>>> 950ccc9ab3c3be5507fd560f9e5e725ff2513fc0:modules/badge/css/package.json
   "description": "provides a summary indicator with dynamic values",
   "author": "Workday, Inc. (https://www.workday.com)",
   "license": "Apache-2.0",
