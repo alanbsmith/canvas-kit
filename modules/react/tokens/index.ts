@@ -13,7 +13,7 @@ import {
 
 import {borderRadius, CanvasBorderRadius, CanvasBorderRadiusKeys, CanvasBorderRadiusValues} from './lib/radius';
 import {BrandingColor, CanvasColor} from './lib/colors.types';
-import depth, {CanvasDepth, CanvasDepthValue} from './lib/depth';
+import { depth, CanvasDepth, CanvasDepthValue} from './lib/depth';
 import {
   space,
   CanvasSpace,
@@ -53,34 +53,46 @@ const canvas = {
 
 export * from '@workday/canvas-colors-web';
 export {
+  // border
   borderRadius,
+  // color
   colors,
   gradients,
+  // depth
   depth,
+  // space
   space,
   spaceNumbers,
+  // type
   type,
   fontFamily,
   monoFontFamily,
-  BrandingColor,
-  CanvasDepth,
-  CanvasDepthValue,
-  CSSProperties,
 };
+
 export default canvas;
 
 export type {
+  // border
   CanvasBorderRadius,
   CanvasBorderRadiusKeys,
   CanvasBorderRadiusValues,
+  // color
   CanvasColor,
+  BrandingColor,
+  // depth
+  CanvasDepth,
+  CanvasDepthValue,
+  // space
   CanvasSpace,
   CanvasSpaceKeys,
   CanvasSpaceValues,
   CanvasSpaceNumberValues,
   CanvasSpaceNumbers,
+  // type
   CanvasType,
   CanvasTypeProperties,
   CanvasTypeVariants,
   CanvasTypeHierarchy,
+  // util
+  CSSProperties,
 }
