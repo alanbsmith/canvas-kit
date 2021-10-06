@@ -14,11 +14,14 @@ export const CustomRange = () => {
   return (
     <Pagination
       aria-label="Pagination"
+      firstPage={-10}
+      initialCurrentPage={3}
       lastPage={lastPage}
       onPageChange={pageNumber => console.log(pageNumber)}
-      rangeSize={3}
+      rangeSize={7}
     >
       <Pagination.Controls>
+        <Pagination.JumpToFirstButton aria-label="First" />
         <Pagination.StepToPreviousButton aria-label="Previous" />
         <Pagination.PageList>
           {({state}) =>
@@ -30,6 +33,7 @@ export const CustomRange = () => {
           }
         </Pagination.PageList>
         <Pagination.StepToNextButton aria-label="Next" />
+        <Pagination.JumpToLastButton aria-label="Last" />
       </Pagination.Controls>
       <Pagination.AdditionalDetails shouldHideDetails>
         {({state}) =>

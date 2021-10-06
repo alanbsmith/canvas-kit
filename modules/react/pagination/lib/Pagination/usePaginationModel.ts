@@ -55,7 +55,7 @@ export const usePaginationModel = ({
     }
   };
 
-  const range = buildPageRange({currentPage, lastPage, rangeSize});
+  const range = buildPageRange({currentPage, firstPage, lastPage, rangeSize});
   const rangeMin = getRangeMin(range);
   const rangeMax = getRangeMax(range);
 
