@@ -4,7 +4,7 @@ import {space} from '@workday/canvas-kit-react/tokens';
 import {accessibleHide} from '@workday/canvas-kit-react/common';
 import {MenuItemProps} from '@workday/canvas-kit-preview-react/menu';
 import {ComboBoxMenuItemGroup, getOptionId, listBoxIdPart, getTextFromElement} from './Combobox';
-import uuid from 'uuid/v4';
+import {v4 as uuid} from 'uuid';
 
 const Autocomplete = styled('ul')({
   margin: 0,

@@ -4,7 +4,7 @@ import {GrowthBehavior, ErrorType, styled, Themeable} from '@workday/canvas-kit-
 import Hint from './Hint';
 import Label from './Label';
 import {FormFieldLabelPosition, FormFieldLabelPositionBehavior} from './types';
-import uuid from 'uuid/v4';
+import {v4 as uuid} from 'uuid';
 
 export interface FormFieldProps
   extends Themeable,

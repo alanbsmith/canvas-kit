@@ -7,7 +7,7 @@ import {Card} from '@workday/canvas-kit-react/card';
 import {IconButton, IconButtonProps} from '@workday/canvas-kit-react/button';
 import {xSmallIcon} from '@workday/canvas-system-icons-web';
 import {TextInputProps} from '@workday/canvas-kit-react/text-input';
-import uuid from 'uuid/v4';
+import {v4 as uuid} from 'uuid';
 import flatten from 'lodash.flatten';
 import AutocompleteList from './AutocompleteList';
 import Status from './Status';

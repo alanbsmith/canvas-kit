@@ -4,7 +4,7 @@ import {menuAnimationDuration} from './SelectMenu';
 import SelectBase, {CoreSelectBaseProps, Option, NormalizedOption} from './SelectBase';
 import {MenuVisibility} from './types';
 import {getCorrectedIndexByValue} from './utils';
-import uuid from 'uuid/v4';
+import {v4 as uuid} from 'uuid';
 
 export interface SelectProps extends CoreSelectBaseProps {
   /**
