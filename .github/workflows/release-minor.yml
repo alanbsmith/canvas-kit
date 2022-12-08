@@ -7,7 +7,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout prerelease/minor
         uses: actions/checkout@v2
         with:
@@ -20,11 +19,17 @@ jobs:
         with:
           github_token: ${{ secrets.GH_RW_TOKEN }}
           branch: refs/heads/master
+        env:
+          VERSION_BUMP_LEVEL: minor
 
       - name: Success Message
-        run: echo "Release successful. Check out https://github.com/Workday/canvas-kit/actions/workflows/release.yml to see the release job start."
+        run:
+          echo "Release successful. Check out
+          https://github.com/Workday/canvas-kit/actions/workflows/release.yml to see the release job
+          start."
 
       - name: Failure Message
         if: failure()
-        run: echo "Make sure there are no changes https://github.com/Workday/canvas-kit/compare/prerelease/minor...master and try again."
-
+        run:
+          echo "Make sure there are no changes
+          https://github.com/Workday/canvas-kit/compare/prerelease/minor...master and try again."
