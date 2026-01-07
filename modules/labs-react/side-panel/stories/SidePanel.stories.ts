@@ -7,6 +7,7 @@ import {AlwaysOpen as AlwaysOpenExample} from './examples/AlwaysOpen';
 // Examples
 import {Basic as BasicExample} from './examples/Basic';
 import {ExternalControl as ExternalControlExample} from './examples/ExternalControl';
+import {Heading as HeadingExample} from './examples/Heading';
 import {HiddenName as HiddenNameExample} from './examples/HiddenName';
 import {OnStateTransition as OnStateTransitionExample} from './examples/OnStateTransition';
 import {RightOrigin as RightOriginExample} from './examples/RightOrigin';
@@ -28,8 +29,8 @@ type Story = StoryObj<typeof SidePanel>;
 export const Basic: Story = {
   render: BasicExample,
 };
-export const HiddenName: Story = {
-  render: HiddenNameExample,
+export const Heading: Story = {
+  render: HeadingExample,
 };
 export const AlternatePanel: Story = {
   render: AlternatePanelExample,
